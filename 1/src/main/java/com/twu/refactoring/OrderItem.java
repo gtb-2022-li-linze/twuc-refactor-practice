@@ -1,11 +1,11 @@
 package com.twu.refactoring;
 
-public class LineItem {
+public class OrderItem {
 	private String desc;
 	private double p;
 	private int qty;
 
-	public LineItem(String desc, double p, int qty) {
+	public OrderItem(String desc, double p, int qty) {
 		super();
 		this.desc = desc;
 		this.p = p;

@@ -4,13 +4,13 @@ import java.util.List;
 
 public class Order {
     String customerName;
-    String addr;
-    List<LineItem> li;
+    String customerAddress;
+    List<OrderItem> items;
 
-    public Order(String customerName, String addr, List<LineItem> li) {
+    public Order(String customerName, String customerAddress, List<OrderItem> items) {
         this.customerName = customerName;
-        this.addr = addr;
-        this.li = li;
+        this.customerAddress = customerAddress;
+        this.items = items;
     }
 
     public String getCustomerName() {
@@ -18,10 +18,10 @@ public class Order {
     }
 
     public String getCustomerAddress() {
-        return addr;
+        return customerAddress;
     }
 
-    public List<LineItem> getLineItems() {
-        return li;
+    public List<OrderItem> getLineItems() {
+        return items;
     }
 }
