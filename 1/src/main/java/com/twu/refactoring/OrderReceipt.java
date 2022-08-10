@@ -8,7 +8,7 @@ package com.twu.refactoring;
  * 
  */
 public class OrderReceipt {
-    private Order o;
+    private final Order o;
 
     public OrderReceipt(Order o) {
         this.o = o;
@@ -29,41 +29,17 @@ public class OrderReceipt {
 	}
 
 	private void printTotalAmount(StringBuilder output) {
-		output.append("Total Amount").append('\t').append(calcTotalAmount());
+		output.append("Total Amount").append('\t').append(o.calcTotalAmount());
 	}
 
 	private void printSalasTax(StringBuilder output) {
-		output.append("Sales Tax").append('\t').append(calcSalesTex());
+		output.append("Sales Tax").append('\t').append(o.calcSalesTex());
 	}
 
 	private void printOrderItems(StringBuilder output) {
 		for (OrderItem orderItem : o.getLineItems()) {
-			output.append(orderItem.getDescription());
-			output.append('\t');
-			output.append(orderItem.getPrice());
-			output.append('\t');
-			output.append(orderItem.getQuantity());
-			output.append('\t');
-			output.append(orderItem.totalAmount());
-			output.append('\n');
+			output.append(orderItem.toString());
 		}
-	}
-
-	private double calcTotalAmount() {
-		double tot = 0d;
-		for (OrderItem orderItem : o.getLineItems()) {
-            tot += orderItem.totalAmount() + orderItem.totalAmount() * .10;
-		}
-		return tot;
-	}
-
-	private double calcSalesTex() {
-		double totSalesTx = 0d;
-		for (OrderItem orderItem : o.getLineItems()) {
-			totSalesTx += orderItem.totalAmount() * .10;
-
-		}
-		return totSalesTx;
 	}
 
 	private void printCustomer(StringBuilder output) {
